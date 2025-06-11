@@ -1,12 +1,12 @@
 // Described in documentation
-import flatpickr from "flatpickr";
+import flatpickr from 'flatpickr';
 // Additional import of styles
-import "flatpickr/dist/flatpickr.min.css";
+import 'flatpickr/dist/flatpickr.min.css';
 
 // Described in documentation
-import iziToast from "izitoast";
+import iziToast from 'izitoast';
 // Additional import of styles
-import "izitoast/dist/css/iziToast.min.css";
+import 'izitoast/dist/css/iziToast.min.css';
 
 // Get DOM elements
 const dateTimePicker = document.querySelector('#datetime-picker');
@@ -31,13 +31,13 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const selectedDate = selectedDates[0];
-    
+
     if (selectedDate && selectedDate <= new Date()) {
       // Date is in the past
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
-        position: 'topRight'
+        position: 'topRight',
       });
       startButton.disabled = true;
       userSelectedDate = null;
@@ -101,17 +101,17 @@ function startTimer() {
       // Timer has reached the end
       clearInterval(timerInterval);
       updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      
+
       // Re-enable input for selecting new date
       dateTimePicker.disabled = false;
       // Keep start button disabled until new valid date is selected
-      
+
       iziToast.success({
         title: 'Completed',
         message: 'Timer has finished!',
-        position: 'topRight'
+        position: 'topRight',
       });
-      
+
       return;
     }
 
@@ -122,4 +122,4 @@ function startTimer() {
 }
 
 // Event listener for start button
-startButton.addEventListener('click', startTimer); 
+startButton.addEventListener('click', startTimer);

@@ -1,34 +1,34 @@
 // Описаний у документації
-import iziToast from "izitoast";
+import iziToast from 'izitoast';
 // Додатковий імпорт стилів
-import "izitoast/dist/css/iziToast.min.css";
+import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', event => {
   event.preventDefault();
-  
+
   const formData = new FormData(form);
   const delay = Number(formData.get('delay'));
   const state = formData.get('state');
-  
+
   createPromise(delay, state)
-    .then((delay) => {
+    .then(delay => {
       const message = `✅ Fulfilled promise in ${delay}ms`;
       console.log(message);
       iziToast.success({
         title: 'Success',
         message: `Fulfilled promise in ${delay}ms`,
-        position: 'topRight'
+        position: 'topRight',
       });
     })
-    .catch((delay) => {
+    .catch(delay => {
       const message = `❌ Rejected promise in ${delay}ms`;
       console.log(message);
       iziToast.error({
         title: 'Error',
         message: `Rejected promise in ${delay}ms`,
-        position: 'topRight'
+        position: 'topRight',
       });
     });
 });
@@ -43,4 +43,4 @@ function createPromise(delay, state) {
       }
     }, delay);
   });
-} 
+}

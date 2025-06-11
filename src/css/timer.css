@@ -73,4 +73,4 @@ button[data-start]:disabled {
 
 button[data-start]:hover:not(:disabled) {
   background-color: #0056b3;
-} 
+}
